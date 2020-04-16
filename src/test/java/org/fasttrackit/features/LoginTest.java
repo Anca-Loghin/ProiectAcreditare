@@ -5,17 +5,17 @@ import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.WhenPageOpens;
 import org.fasttrackit.steps.LoginSteps;
+import org.fasttrackit.utils.BaseTest;
 import org.fasttrackit.utils.Constants;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 
 
-public class LoginTest extends Constants {
+public class LoginTest extends BaseTest {
+
     @Steps
     private LoginSteps loginSteps;
-
-
 
     @Test
     public void testValidLogin(){
@@ -33,4 +33,9 @@ public class LoginTest extends Constants {
         loginSteps.fillAndSubmitCredentialsRegister();
     }
 
+    @Test
+    public void testInvalidLogin(){
+        loginSteps.fillAndSubmitInvalidCredentialsLogin();
+        loginSteps.checkInvalidMessage("ERROR");
+    }
 }

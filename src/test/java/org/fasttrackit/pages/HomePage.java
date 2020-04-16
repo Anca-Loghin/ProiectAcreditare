@@ -11,14 +11,37 @@ public class HomePage extends PageObject {
     @FindBy(css = "a[title='Login']")
     private WebElementFacade loginLink;
 
-    @FindBy(css = "")
-    private WebElementFacade registerLink;
+    @FindBy(css = "i.fa.fa-search")
+    private WebElementFacade searchByInput;
+
+    @FindBy(css = "input.search-field")
+    private WebElementFacade typeInputText;
+
+    @FindBy(css = "input.search-submit")
+    private WebElementFacade searchIcon;
+
+    @FindBy(css = "h1.page-title >span")
+    private WebElementFacade searchInputMessage;
+
 
     public void clickLogin(){
         clickOn(loginLink);
     }
 
-    public void clickRegister(){
-        clickOn(registerLink);
+    public void clickSearchByInput(){
+        clickOn(searchByInput);
+    }
+
+    public void setTypeInputText(String value){
+        waitFor(typeInputText);
+        typeInto(typeInputText, value);
+    }
+
+    public void clickOnSearchIcon(){
+        clickOn(searchIcon);
+    }
+
+    public String getSearchInputMessage(){
+        return searchInputMessage.getText();
     }
 }

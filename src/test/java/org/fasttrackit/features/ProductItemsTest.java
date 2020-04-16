@@ -4,15 +4,12 @@ import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Steps;
 import org.fasttrackit.steps.ProductSteps;
+import org.fasttrackit.utils.BaseTest;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 
-@RunWith(SerenityRunner.class)
-public class ProductItemsTest {
-
-    @Managed(uniqueSession = true)
-    private WebDriver driver;
+public class ProductItemsTest extends BaseTest {
 
     @Steps
     private ProductSteps productSteps;
@@ -29,4 +26,5 @@ public class ProductItemsTest {
         productSteps.navigateToProductPage();
         productSteps.selectNextPage();
     }
+
 }

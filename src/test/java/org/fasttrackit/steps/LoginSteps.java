@@ -40,4 +40,20 @@ public class LoginSteps  {
      String message = myAccountPage.getWelcomeMessage();
       Assert.assertEquals(expected, message);
    }
+
+   @Step
+   public void fillAndSubmitInvalidCredentialsLogin(){
+      homePage.open();
+      homePage.clickLogin();
+      loginPage.setEmailField("ancatest1@mailinator");
+      loginPage.setPasswordField("Test123321!!!");
+      loginPage.submitLogin();
+      loginPage.getErrorMessage();
+   }
+
+   @Step
+   public void checkInvalidMessage(String expected){
+      String message = loginPage.getErrorMessage();
+      Assert.assertEquals(expected, message);
+   }
 }

@@ -11,7 +11,14 @@ public class MyAccountPage extends PageObject {
     @FindBy(css = "strong")
     private WebElementFacade welcomeMessageParagraph;
 
+    @FindBy(css = "#menu-item-1730>a")
+    private WebElementFacade myAccount;
+
     public String getWelcomeMessage(){
         return welcomeMessageParagraph.getText();
+    }
+
+    public void clickMyAccount(){
+        clickOn(myAccount);
     }
 }

@@ -27,6 +27,9 @@ public class LoginPage extends PageObject {
     @FindBy(css = "button[name~=register]")
     private WebElementFacade registerButton;
 
+    @FindBy(css = "li strong")
+    private WebElementFacade errorMessage;
+
 
     public void setEmailField(String email){
         typeInto(emailFieldLogin, email);
@@ -48,5 +51,8 @@ public class LoginPage extends PageObject {
         clickOn(registerButton);
     }
 
+    public String getErrorMessage(){
+        return errorMessage.getText();
+    }
 
 }
