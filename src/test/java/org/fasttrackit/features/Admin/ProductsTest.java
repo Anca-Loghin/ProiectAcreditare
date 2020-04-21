@@ -18,6 +18,7 @@ public class ProductsTest extends BaseTest {
     public void testModifyProduct(){
         loginSteps.fillAndSubmitCredentialLogin("admin", "parola11");
         productSteps.modifyProducts();
+        productSteps.checkProductWasModifyMessage("Bag new Bag");
 
   }
 }

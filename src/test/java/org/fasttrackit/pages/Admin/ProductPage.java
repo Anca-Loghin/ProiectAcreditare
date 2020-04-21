@@ -20,6 +20,15 @@ public class ProductPage extends PageObject {
     @FindBy(id = "#edit-2651 input.text.wc_input_price.regular_price")
     private WebElementFacade modifyPrice;
 
+    @FindBy(css = "#the-list input.ptitle")
+    private WebElementFacade modifyTitle;
+
+    @FindBy(css = "tr#edit-2651 button.button-primary")
+    private WebElementFacade updateButton;
+
+    @FindBy(id = "doaction")
+    private WebElementFacade apply;
+
     public void clickOpenProducts(){
         clickOn(openProducts);
     }
@@ -32,4 +41,18 @@ public class ProductPage extends PageObject {
     public void setModifyPrice(String value){
         typeInto(modifyPrice, value);
     }
+    public void setTitle(String text){
+        typeInto(modifyTitle, text);
+    }
+    public void clickApply(){
+        clickOn(apply);
+    }
+    public void clickUpdate(){
+        clickOn(updateButton);
+    }
+    public String getProducWasModifyMessage(){
+        return selectProduct.getTextContent();
+    }
+
+
 }
