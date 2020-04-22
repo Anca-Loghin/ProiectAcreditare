@@ -44,12 +44,15 @@ public class CheckoutSteps {
         checkoutPage.clickCreateAccount();
         checkoutPage.setPasswordAccount("123321aaaAAA!!!");
         checkoutPage.clickPlaceOrder();
+        checkoutPage.clickOpenMyAccount();
     }
 
 
-    @Step
-    public void checkCreateAccountFromCheckoutMessage(String expected){
+
+   @Step
+   public void checkCreateAccountFromCheckoutMessage(){
+        String userName = "ancatest" + System.nanoTime();
         String message = checkoutPage.getOpenMyAccountMessage();
-        Assert.assertEquals(expected, message);
+        Assert.assertEquals(userName, message);
     }
 }

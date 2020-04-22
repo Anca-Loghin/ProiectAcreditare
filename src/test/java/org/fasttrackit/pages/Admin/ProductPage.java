@@ -3,6 +3,9 @@ package org.fasttrackit.pages.Admin;
 import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 
 import java.lang.annotation.Target;
 
@@ -29,18 +32,22 @@ public class ProductPage extends PageObject {
     @FindBy(id = "doaction")
     private WebElementFacade apply;
 
+    @FindBy(css = "h3.entry-title>a")
+    private WebElementFacade checkModifyName;
+
     public void clickOpenProducts(){
         clickOn(openProducts);
     }
-    public void hoverSelectProduct(){
-        withAction().moveToElement(element(selectProduct)).moveToElement(element(quickEdit)).click().build().perform();
+
+    public void mouseOverElement(){
+        Actions action = new Actions(getDriver());
+        WebElement element = getDriver().findElement(By.cssSelector("#post-2651 a.row-title"));
+        action.moveToElement(element).perform();
     }
     public void clickEditProduct(){
         clickOn((quickEdit));
     }
-    public void setModifyPrice(String value){
-        typeInto(modifyPrice, value);
-    }
+
     public void setTitle(String text){
         typeInto(modifyTitle, text);
     }
@@ -50,9 +57,19 @@ public class ProductPage extends PageObject {
     public void clickUpdate(){
         clickOn(updateButton);
     }
-    public String getProducWasModifyMessage(){
+    public String getProductWasModifyMessage(){
         return selectProduct.getTextContent();
     }
+
+    public void setPrice(){
+        modifyPrice.click();
+        modifyPrice.sendKeys("" +150);
+    }
+
+    public String getProductWasModifyInFrontEnd(){
+        return checkModifyName.getText();
+    }
+
 
 
 }

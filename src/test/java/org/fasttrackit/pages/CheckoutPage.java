@@ -53,6 +53,8 @@ public class CheckoutPage extends PageObject {
     @FindBy(css = "strong:first-of-type")
     private WebElementFacade myAccountMessage;
 
+    String userName = "ancatest" + System.nanoTime();
+
     public void clickProceedtoCheckout(){
         clickOn(proceedToCheckoutButton);
     }
@@ -79,7 +81,7 @@ public class CheckoutPage extends PageObject {
         typeInto(phoneNumber, value);
     }
     public void generateEmailAdress(String myEmail){
-        myEmail = "ancatest" + System.nanoTime() + "@mailinator.com";
+        myEmail = userName + "@mailinator.com";
         typeInto(emailAddress, myEmail);
     }
 

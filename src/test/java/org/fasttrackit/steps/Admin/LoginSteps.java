@@ -7,7 +7,7 @@ public class LoginSteps {
     private LoginPage loginPage;
 
     @Step
-    public void fillAndSubmitCredentialLogin( String username, String password){
+    public void fillAndSubmitCredentialLogin(String username, String password) {
         loginPage.open();
         loginPage.setUserNameField(username);
         loginPage.setUserPasswordField(password);
