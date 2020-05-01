@@ -31,7 +31,7 @@ public class CheckoutSteps {
     }
 
     @Step
-    public void createAccountFromCheckout(){
+    public void createAccountFromCheckout() {
         checkoutPage.clickProceedtoCheckout();
         checkoutPage.setFirstName("Anca");
         checkoutPage.setLasttName("Micle");
@@ -44,6 +44,8 @@ public class CheckoutSteps {
         checkoutPage.clickCreateAccount();
         checkoutPage.setPasswordAccount("123321aaaAAA!!!");
         checkoutPage.clickPlaceOrder();
+        checkoutPage.getOrderDetailMessage();
+        checkoutPage.clickCheckoutButton();
         checkoutPage.clickOpenMyAccount();
     }
 
@@ -51,8 +53,9 @@ public class CheckoutSteps {
 
    @Step
    public void checkCreateAccountFromCheckoutMessage(){
-        String userName = "ancatest" + System.nanoTime();
+        String userName = "ancatest" + java.util.UUID.randomUUID();
         String message = checkoutPage.getOpenMyAccountMessage();
         Assert.assertEquals(userName, message);
     }
+
 }

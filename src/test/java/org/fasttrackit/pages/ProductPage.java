@@ -20,7 +20,6 @@ public class ProductPage extends PageObject {
     @FindBy(css = "a.next.page-numbers")
     private WebElementFacade nextPage;
 
-
     public void clickShopItems() {
         clickOn(shopItems);
     }

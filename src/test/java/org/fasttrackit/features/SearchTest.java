@@ -15,4 +15,10 @@ public class SearchTest extends BaseTest {
         searchSteps.searchForKeyword("sunglasses");
         searchSteps.checkSearchMessage("sunglasses");
     }
+
+    @Test
+    public void testSearchListByKeyword(){
+        searchSteps.searchForKeyword("hoodie");
+        searchSteps.shouldSeeAllItemRelated("hoodie");
+    }
 }

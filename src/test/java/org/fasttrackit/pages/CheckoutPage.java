@@ -1,9 +1,12 @@
 package org.fasttrackit.pages;
 
+import com.google.inject.Provider;
 import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.DefaultUrl;
+
+import java.util.UUID;
 
 
 public class CheckoutPage extends PageObject {
@@ -53,7 +56,13 @@ public class CheckoutPage extends PageObject {
     @FindBy(css = "strong:first-of-type")
     private WebElementFacade myAccountMessage;
 
-    String userName = "ancatest" + System.nanoTime();
+    @FindBy(css = "li#menu-item-1729>a")
+    private WebElementFacade checkoutButton;
+
+    @FindBy(css = "section>h2")
+    private WebElementFacade orderDetailMessage;
+
+    String userName = "ancatest" + java.util.UUID.randomUUID();
 
     public void clickProceedtoCheckout(){
         clickOn(proceedToCheckoutButton);
@@ -90,6 +99,7 @@ public class CheckoutPage extends PageObject {
     }
 
     public String getPlaceOrderMessage(){
+        waitFor(placeOrderMessage);
         return placeOrderMessage.getText();
     }
 
@@ -100,11 +110,21 @@ public class CheckoutPage extends PageObject {
         typeInto(passwordAccount, password);
     }
     public void clickOpenMyAccount(){
+        waitFor(300);
         clickOn(openMyAccount);
     }
     public String getOpenMyAccountMessage(){
         return myAccountMessage.getText();
     }
+    public void clickCheckoutButton(){
+        clickOn(checkoutButton);
+    }
+    public String getOrderDetailMessage(){
+        waitFor(orderDetailMessage);
+        return orderDetailMessage.getText();
+    }
+
+
 
 
 

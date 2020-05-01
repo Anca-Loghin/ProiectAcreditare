@@ -25,17 +25,17 @@ public class CheckoutTest extends BaseTest {
         cartSteps.addToCartProduct();
         cartSteps.openViewCart();
         checkoutSteps.proceedToCheckout();
-        checkoutSteps.checkPlaceOrderMessage("Thank you. Your order has been received."); //nu merge, css e corect
+        checkoutSteps.checkPlaceOrderMessage("Thank you. Your order has been received.");
     }
 
     @Test
-    public void testCreateAccountFromCheckout(){
+    public void testCreateAccountFromCheckout() {
         productSteps.navigateToProductPage();
         productSteps.selectPage2();
         cartSteps.addToCartProduct();
         cartSteps.openViewCart();
-        checkoutSteps.createAccountFromCheckout(); // cand se deschide MyAccount nu ramane logat userul, desi manual userul ramane logat.
-        checkoutSteps.checkCreateAccountFromCheckoutMessage();// cum pot face assert pentru mailul care e random?
+        checkoutSteps.createAccountFromCheckout();
+        checkoutSteps.checkCreateAccountFromCheckoutMessage();// e ok assert pentru mailul care e random? de verificat
 
     }
 }
