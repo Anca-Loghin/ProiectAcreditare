@@ -39,18 +39,26 @@ public class BlogSteps {
     }
 
     @Step
-
     public void checkPostMessage(String expected){
         String message = blogPage.getPostMessage();
         Assert.assertEquals(expected, message);
     }
 
     @Step
-
     public void deletePostMessage(String username, String password){
         loginPageAdmin.open();
         blogPageAdmin.clickComments();
         blogPageAdmin.clickSearchComment("This is a test, this is a test");
+        blogPageAdmin.clickSubmitSearch();
+        blogPageAdmin.mouseOverElement();
+        blogPageAdmin.clickDeleteComment();
+    }
+
+    @Step
+    public void deleteReviewMessage(){
+        loginPageAdmin.open();
+        blogPageAdmin.clickComments();
+        blogPageAdmin.clickSearchComment("This bag is not pink");
         blogPageAdmin.clickSubmitSearch();
         blogPageAdmin.mouseOverElement();
         blogPageAdmin.clickDeleteComment();

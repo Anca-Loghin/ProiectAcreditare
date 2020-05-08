@@ -1,6 +1,8 @@
 package org.fasttrackit.features;
 
 import net.thucydides.core.annotations.Steps;
+import org.fasttrackit.steps.Admin.LoginSteps;
+import org.fasttrackit.steps.BlogSteps;
 import org.fasttrackit.steps.CartSteps;
 import org.fasttrackit.steps.ProductSteps;
 import org.fasttrackit.utils.BaseTest;
@@ -13,6 +15,12 @@ public class CartTest extends BaseTest {
 
     @Steps
     private ProductSteps productSteps;
+
+    @Steps
+    private BlogSteps blogSteps;
+
+    @Steps
+    private LoginSteps loginStepAdmin;
 
 
     @Test
@@ -74,4 +82,15 @@ public class CartTest extends BaseTest {
         cartSteps.addProductsToCart(); //stale element is not attached to page
         //cartSteps.checkTotal("270,00 lei");
     }
+
+    @Test
+    public void testReviewsOnProduct(){
+        productSteps.navigateToProductPage();
+        cartSteps.reviewProduct();
+        cartSteps.checkReviewMessage("This bag is not pink");
+        loginStepAdmin.fillAndSubmitCredentialLogin("admin", "parola11");
+        blogSteps.deleteReviewMessage();
+
+    }
+
 }

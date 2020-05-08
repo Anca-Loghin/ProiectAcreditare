@@ -16,9 +16,15 @@ public class SearchTest extends BaseTest {
         searchSteps.checkSearchMessage("sunglasses");
     }
 
-    @Test
+    @Test // de verificat
     public void testSearchListByKeyword(){
         searchSteps.searchForKeyword("hoodie");
-        searchSteps.shouldSeeAllItemRelated("hoodie");
+        searchSteps.shouldSeeIfItemIsInGridSearch();
+    }
+
+    @Test // de verificat
+    public void test(){
+        searchSteps.searchForKeyword("hoodie");
+        searchSteps.verifyResult("Hoodie");
     }
 }

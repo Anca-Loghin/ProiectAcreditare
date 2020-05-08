@@ -35,6 +35,7 @@ public class CartSteps {
     public void removeFromCart(){
         cartPage.clickOnRemoveItemFromCart();
     }
+
     @Step
     public void checkRemoveItemMessage(String expected){
         String message = cartPage.getProductWasRemovedFromCartMessage();
@@ -52,8 +53,24 @@ public class CartSteps {
     }
 
     @Step
-    public void checkTotal(String expected){
-        String message = cartPage.getVerifyTotal();
-        Assert.assertEquals(expected, message);
+    public void reviewProduct() {
+        cartPage.clickBagProduct();
+        cartPage.clickReviewsStar();
+        cartPage.setReviewsInTextBox("This bag is not pink");
+        cartPage.setReviewAuthor("Anca Micle");
+        cartPage.setReviewAuthorEmail("ancatest@mailinator");
+        cartPage.clickSubmitButton();
     }
-}
+
+    @Step
+    public void checkReviewMessage(String expected){
+        String message = cartPage.getReviewMessage();
+        Assert.assertEquals(expected, message);
+        }
+
+    }
+
+
+
+
+

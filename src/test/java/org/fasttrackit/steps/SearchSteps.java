@@ -14,33 +14,38 @@ public class SearchSteps {
     private SearchPage searchPage;
 
     @Step
-    public void searchForKeyword(String value){
+    public void searchForKeyword(String value) {
         homePage.open();
         homePage.clickSearchByInput();
         homePage.setTypeInputText(value);
         homePage.clickOnSearchIcon();
     }
+
     @Step
-    public void checkSearchMessage(String expected){
+    public void checkSearchMessage(String expected) {
         String message = homePage.getSearchInputMessage();
         Assert.assertEquals(expected, message);
     }
 
     @Step
-    public void shouldSeeAllItemRelated(String keywords) {
-        List<String> resultSearch = searchPage.getResultSearch();
+    public void shouldSeeIfItemIsInGridSearch() {
+        searchPage.getResultSearch("Hoodie");
+    }
 
+    @Step
+    public void verifyResult(String searchResult) {
+        List<String> results = searchPage.getResultTitles();
+        Assert.assertTrue(results.contains(searchResult));
     }
 
 
 }
-// public void should_see_item_in_cart(ListingItem selectedItem) {
-//        assertThat(
-//                cartPage.getOrderCostSummaries()
-//                        .stream()
-//                        .anyMatch(order -> order.getName().equals(selectedItem.getName()))
-//        ).isTrue();
-//    }
+
+
+
+
+
+
 
 
 
