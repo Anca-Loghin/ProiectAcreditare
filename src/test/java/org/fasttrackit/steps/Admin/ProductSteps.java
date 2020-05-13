@@ -18,9 +18,11 @@ public class ProductSteps {
     @Step
     public void modifyProducts(){
        productPage.clickOpenProducts();
+       productPage.clickSearchProduct("Bag new Bag");
+       productPage.clickSubmitSearch();
        productPage.mouseOverElement();
        productPage.clickEditProduct();
-       productPage.setTitle("Bag new Bag");
+       productPage.setTitle("Bag new Bag for Test");
        //productPage.setPrice();
        productPage.clickUpdate();
     }
@@ -41,5 +43,12 @@ public class ProductSteps {
         String message = productPage.getProductWasModifyInFrontEnd();
         Assert.assertEquals(expected, message);
     }
+    @Steps
+    public void addNewProduct (String value){
+        productPage.clickOpenProducts();
+        productPage.clickAddNewProduct();
+        productPage.enterTitle("Anca Test");
+    }
+
 
 }

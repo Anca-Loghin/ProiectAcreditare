@@ -35,6 +35,21 @@ public class ProductPage extends PageObject {
     @FindBy(css = "h3.entry-title>a")
     private WebElementFacade checkModifyName;
 
+    @FindBy(id = "post-search-input")
+    private WebElementFacade searchProduct;
+
+    @FindBy(id = "search-submit")
+    private WebElementFacade submitSearch;
+
+    @FindBy(css = "a.page-title-action:first-of-type")
+    private WebElementFacade addNew;
+
+    @FindBy(id = "title")
+    private WebElementFacade title;
+
+    @FindBy(id = "_regular_price")
+    private WebElementFacade regularPrice;
+
     public void clickOpenProducts(){
         clickOn(openProducts);
     }
@@ -70,6 +85,20 @@ public class ProductPage extends PageObject {
         return checkModifyName.getText();
     }
 
+    public void clickSearchProduct(String value){
+        typeInto(searchProduct,value);
+    }
 
-
+    public void clickSubmitSearch(){
+        clickOn(submitSearch);
+    }
+    public void clickAddNewProduct(){
+        clickOn(addNew);
+    }
+    public void enterTitle(String value){
+        typeInto(title, value);
+    }
+    public void enterRegularPrice(String value){
+        typeInto(regularPrice, value);
+    }
 }
