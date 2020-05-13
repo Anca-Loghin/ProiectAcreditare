@@ -23,5 +23,15 @@ public class ProductsTest extends BaseTest {
         productSteps.checkProductWasModifyMessage("Bag new Bag for Test");
         productSteps.verifyProductWasModifyInFrontend("Bag new Bag for Test");
         productSteps.verifyModifyName("Bag new Bag for Test");
+        loginSteps.fillAndSubmitCredentialLogin("admin", "parola11");
+        productSteps.restoreProductToInitialState(); //expected element was not enabled
+    }
+
+    @Test
+    public void testAddNewProduct(){
+        loginSteps.fillAndSubmitCredentialLogin("admin", "parola11");
+        productSteps.addNewProduct();
+        productSteps.checkProductWasCreatedInFrontend("Anca Test");
+        productSteps.deleteNewAddedProduct();
     }
 }

@@ -50,11 +50,29 @@ public class ProductPage extends PageObject {
     @FindBy(id = "_regular_price")
     private WebElementFacade regularPrice;
 
+    @FindBy(css = "li.inventory_options a")
+    private WebElementFacade inventory;
+
+    @FindBy(id = "_sku")
+    private WebElementFacade sku;
+
+    @FindBy(id = "publish")
+    private WebElementFacade publish;
+
+    @FindBy(css = "div#message.updated a")
+    private WebElementFacade viewProduct;
+
+    @FindBy(css = "h1.product_title")
+    private WebElementFacade productWasCreatedMessage;
+
+    @FindBy(css = "a.submitdelete")
+    private WebElementFacade deleteProduct;
+
     public void clickOpenProducts(){
         clickOn(openProducts);
     }
 
-    public void mouseOverElement(){
+    public void mouseOverElementBag(){
         Actions action = new Actions(getDriver());
         WebElement element = getDriver().findElement(By.cssSelector("#post-2651 a.row-title"));
         action.moveToElement(element).perform();
@@ -100,5 +118,28 @@ public class ProductPage extends PageObject {
     }
     public void enterRegularPrice(String value){
         typeInto(regularPrice, value);
+    }
+    public void clickInventory(){
+        clickOn(inventory);
+    }
+    public void enterSku(String value){
+        typeInto(sku, value);
+    }
+    public void clickPublish(){
+        clickOn(publish);
+    }
+    public void clickViewProduct(){
+        clickOn(viewProduct);
+    }
+    public String getProductWasCreated(){
+        return productWasCreatedMessage.getText();
+    }
+    public void deleteNewCreatedProduct(){
+        clickOn(deleteProduct);
+    }
+    public void mouseOverElementDelete(){
+        Actions action = new Actions(getDriver());
+        WebElement element = getDriver().findElement(By.cssSelector("a.row-title"));
+        action.moveToElement(element).perform();
     }
 }
