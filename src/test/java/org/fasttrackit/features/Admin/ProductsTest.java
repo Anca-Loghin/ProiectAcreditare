@@ -23,8 +23,8 @@ public class ProductsTest extends BaseTest {
         productSteps.checkProductWasModifyMessage("Bag new Bag for Test");
         productSteps.verifyProductWasModifyInFrontend("Bag new Bag for Test");
         productSteps.verifyModifyName("Bag new Bag for Test");
-        loginSteps.fillAndSubmitCredentialLogin("admin", "parola11");
-        productSteps.restoreProductToInitialState(); //expected element was not enabled
+        loginSteps.openBackendPage();
+        productSteps.restoreProductToInitialState();
     }
 
     @Test

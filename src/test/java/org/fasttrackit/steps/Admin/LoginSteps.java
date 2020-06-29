@@ -13,4 +13,8 @@ public class LoginSteps {
         loginPage.setUserPasswordField(password);
         loginPage.clickLoginButton();
     }
+    @Step
+    public void openBackendPage(){
+        loginPage.open();
+    }
 }

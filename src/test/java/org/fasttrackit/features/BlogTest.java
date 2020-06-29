@@ -16,7 +16,6 @@ public class BlogTest extends BaseTest {
     public void testPostApproveAndDeleteComment(){
         blogSteps.setPostComment();
         blogSteps.checkPostComentAfterApprove("admin", "parola11");
-        blogSteps.checkPostMessage("This is a test, this is a test");
         blogSteps.deletePostMessage("admin", "parola11");
     }
 

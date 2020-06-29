@@ -47,7 +47,6 @@ public class CartSteps {
         cartPage.waitForElement();
         cartPage.clickOnProductBag1();
         cartPage.clickOnProductBag2();
-        cartPage.clickOnProductBag3();
         cartPage.waitForElement();
         cartPage.clickOpenCart();
     }

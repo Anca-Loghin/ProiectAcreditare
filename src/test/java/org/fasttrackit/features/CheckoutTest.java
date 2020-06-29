@@ -35,7 +35,6 @@ public class CheckoutTest extends BaseTest {
         cartSteps.addToCartProduct();
         cartSteps.openViewCart();
         checkoutSteps.createAccountFromCheckout();
-        checkoutSteps.checkCreateAccountFromCheckoutMessage();// e ok assert pentru mailul care e random? de verificat
-
+        checkoutSteps.checkLogOutButton("Logout");
     }
 }

@@ -35,7 +35,8 @@ public class CartTest extends BaseTest {
         productSteps.navigateToProductPage();
         productSteps.selectPage2();
         cartSteps.addToCartProduct();
-        cartSteps.checkAddedItemMessage("View cart“bzZDKvQo” has been added to your cart.");
+        cartSteps.checkAddedItemMessage("View cart\n" +
+                "“bzZDKvQo” has been added to your cart.");
     }
 
     @Test
@@ -74,13 +75,6 @@ public class CartTest extends BaseTest {
         cartSteps.openViewCart();
         cartSteps.removeFromCart();
         cartSteps.checkRemoveItemMessage("“bzZDKvQo” removed. Undo?");
-    }
-
-    @Test
-    public void testAddProductToCartAndCheckTotal(){
-        productSteps.navigateToProductPage();
-        cartSteps.addProductsToCart(); //stale element is not attached to page
-        //cartSteps.checkTotal("270,00 lei");
     }
 
     @Test

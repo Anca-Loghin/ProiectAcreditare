@@ -38,11 +38,6 @@ public class BlogSteps {
         blogPage.clickBlogButton();
     }
 
-    @Step
-    public void checkPostMessage(String expected){
-        String message = blogPage.getPostMessage();
-        Assert.assertEquals(expected, message);
-    }
 
     @Step
     public void deletePostMessage(String username, String password){

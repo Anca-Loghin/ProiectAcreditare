@@ -62,6 +62,9 @@ public class CheckoutPage extends PageObject {
     @FindBy(css = "section>h2")
     private WebElementFacade orderDetailMessage;
 
+    @FindBy(css = "li.woocommerce-MyAccount-navigation-link.woocommerce-MyAccount-navigation-link--customer-logout > a")
+    private WebElementFacade logOutButton;
+
     String userName = "ancatest" + java.util.UUID.randomUUID();
 
     public void clickProceedtoCheckout(){
@@ -119,12 +122,16 @@ public class CheckoutPage extends PageObject {
     public void clickCheckoutButton(){
         clickOn(checkoutButton);
     }
+
     public String getOrderDetailMessage(){
         waitFor(orderDetailMessage);
         return orderDetailMessage.getText();
     }
 
-
+    public String checkLogOutButton() {
+        waitFor(logOutButton);
+        return logOutButton.getText();
+    }
 
 
 

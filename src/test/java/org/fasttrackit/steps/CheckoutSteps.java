@@ -49,13 +49,10 @@ public class CheckoutSteps {
         checkoutPage.clickOpenMyAccount();
     }
 
-
-
-   @Step
-   public void checkCreateAccountFromCheckoutMessage(){
-        String userName = "ancatest" + java.util.UUID.randomUUID();
-        String message = checkoutPage.getOpenMyAccountMessage();
-        Assert.assertEquals(userName, message);
+    @Step
+    public void checkLogOutButton(String expected){
+        String message = checkoutPage.checkLogOutButton();
+        Assert.assertEquals(expected, message);
     }
 
 }

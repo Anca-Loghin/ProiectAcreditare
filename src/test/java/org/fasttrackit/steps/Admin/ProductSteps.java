@@ -51,7 +51,8 @@ public class ProductSteps {
     }
     @Step
     public void restoreProductToInitialState(){
-        productPage.clickOpenProducts();
+        productPage.mouseOverElementProduct();
+        productPage.clickAllProducts();
         productPage.clickSearchProduct("Bag new Bag");
         productPage.clickSubmitSearch();
         productPage.mouseOverElementBag();

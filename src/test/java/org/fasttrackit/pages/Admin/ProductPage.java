@@ -68,7 +68,11 @@ public class ProductPage extends PageObject {
     @FindBy(css = "a.submitdelete")
     private WebElementFacade deleteProduct;
 
+    @FindBy(css = "#menu-posts-product a.wp-first-item")
+    private WebElementFacade allProducts;
+
     public void clickOpenProducts(){
+        waitForRenderedElements(By.cssSelector("#menu-posts-product .wp-menu-name"));
         clickOn(openProducts);
     }
 
@@ -78,6 +82,7 @@ public class ProductPage extends PageObject {
         action.moveToElement(element).perform();
     }
     public void clickEditProduct(){
+
         clickOn((quickEdit));
     }
 
@@ -141,5 +146,13 @@ public class ProductPage extends PageObject {
         Actions action = new Actions(getDriver());
         WebElement element = getDriver().findElement(By.cssSelector("a.row-title"));
         action.moveToElement(element).perform();
+    }
+    public void mouseOverElementProduct(){
+        Actions action = new Actions(getDriver());
+        WebElement element = getDriver().findElement(By.cssSelector("#menu-posts-product .wp-menu-name"));
+        action.moveToElement(element).perform();
+    }
+    public void clickAllProducts(){
+        clickOn(allProducts);
     }
 }
